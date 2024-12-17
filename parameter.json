@@ -1,0 +1,15 @@
+{
+  "Parameters": {
+    "BedrockModel":"Anthropic Claude 3 Haiku",
+    "BedrockSecondaryRegionAccess":"Oregon [US West] (us-west-2)",
+    "CidrBlock":"172.31.0.0/16",
+    "DefaultAIOptions":"Recommended V4 features (v4.default)",
+    "Email":"user@example.com",
+    "EnableKnowledgeGraph":"NO",
+    "OpenSearchCluster":"Development and Testing (t3.medium=0,m5.large=1,gp2=10,az=1)",
+    "PriceClass":"Use Only U.S., Canada and Europe (PriceClass_100)",
+    "StartOnObjectCreation":"YES",
+    "UserDefinedIngestBucket":"",
+    "VersionCompatibilityStatement":"Yes, I understand and proceed"
+  }
+}

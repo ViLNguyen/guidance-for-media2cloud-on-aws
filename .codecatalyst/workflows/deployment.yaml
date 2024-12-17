@@ -1,0 +1,77 @@
+Name: deployment
+SchemaVersion: "1.0"
+Triggers:
+  - Type: PUSH
+    Branches:
+      - main
+  - Type: SCHEDULE
+    Expression: 0 2 * * ? *
+    Branches:
+      - main
+Compute:
+  Type: EC2
+  Fleet: Linux.x86-64.Large
+Actions:
+  init:
+    Identifier: aws/build@v1
+    Inputs:
+      Sources:
+        - WorkflowSource
+    Configuration:
+      Steps:
+        - Run: chmod u+x ./.codecatalyst/*.sh
+        - Run: ./.codecatalyst/init-runner.sh "${Secrets.USER_NAME}"
+            "${Secrets.USER_EMAIL}" "${Secrets.USER_ID}" "${Secrets.PAT}"
+            "${Secrets.SKIP_FOR_CUSTOMER}"
+      Container:
+        Registry: CODECATALYST
+        Image: CodeCatalystLinux_x86_64:2024_03
+    Environment:
+      Name: prod_environment
+  build:
+    DependsOn:
+      - init
+    Identifier: aws/build@v1
+    Inputs:
+      Sources:
+        - WorkflowSource
+      Variables:
+        - Name: region
+        - Name: bucketPrefix
+        - Name: guidanceVersion
+    Outputs:
+      AutoDiscoverReports:
+        Enabled: false
+        ReportNamePrefix: rpt
+    Configuration:
+      Steps:
+        - Run: export REGION=$region
+        - Run: export BUCKET_PREFIX=$bucketPrefix
+        - Run: export BUCKET_NAME=$BUCKET_PREFIX-$REGION
+        - Run: export GUIDANCE_NAME=guidance-for-media2cloud-on-aws
+        - Run: export VERSION=$guidanceVersion
+        - Run: chmod u+x ./.codecatalyst/*.sh
+        - Run: echo ./.codecatalyst/create-bucket.sh $BUCKET_NAME $REGION
+        - Run: ./.codecatalyst/create-bucket.sh $BUCKET_NAME $REGION
+        - Run: aws s3 cp ./media2cloud.template
+            s3://$BUCKET_NAME/$GUIDANCE_NAME/$VERSION/media2cloud.template
+      Container:
+        Registry: CODECATALYST
+        Image: CodeCatalystLinux_x86_64:2024_03
+    Environment:
+      Name: prod_environment
+  deploy:
+    Identifier: aws/cfn-deploy@v1
+    Inputs:
+      Sources:
+        - WorkflowSource
+    Configuration:
+      parameter-overrides: file:///sources/WorkflowSource/parameter.json
+      capabilities: CAPABILITY_IAM,CAPABILITY_NAMED_IAM,CAPABILITY_AUTO_EXPAND
+      template: https://{{bucketPrefix}}-{{region}}.s3.{{region}}.amazonaws.com/guidance-for-media2cloud-on-aws/{{guidanceVersion}}/media2cloud.template
+      region: {{ region }}
+      name: guidance-for-media2cloud-on-aws
+    Environment:
+      Name: prod_environment
+    DependsOn:
+      - build
