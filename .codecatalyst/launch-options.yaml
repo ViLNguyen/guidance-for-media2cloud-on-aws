@@ -50,7 +50,7 @@ options:
       - Others - Celebrity and face matching (celeb,facematch)
     optional: false
   - key: Email
-    validationRegex: '[^\s@:]+@[^\s@:]+\.[^\s@:]+|[^\s@:]+:[^\s@:]+''
+    validationRegex: '[^\s@:]+@[^\s@:]+\.[^\s@:]+|[^\s@:]+:[^\s@:]+'
     validationMessage: 'Email address or Username:Password'
     displayName: User Email
     description: Email address of the user that will be created in the Amazon Cognito Identity Pool and subscribed to the Amazon SNS topic. Subscribed users will receive ingest, publishing, and error notifications. After launch, two emails will be sent to this address; one with instructions for logging in to the web interface and one confirming the SNS subscription.
