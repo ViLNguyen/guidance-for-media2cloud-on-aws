@@ -46,7 +46,6 @@ regional-s3-assets
 open-source
 
 #### Misc
-*.env
 *.pem
 *.key
 *.vtt
