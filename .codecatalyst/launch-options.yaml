@@ -15,16 +15,15 @@ options:
     displayType: string
     optional: false
   - key: UserDefinedIngestBucket
-    value: ''
     displayName: S3 Ingest Bucket
     description: If you have an existing bucket that you would like to store uploaded contents, specify the bucket name. Otherwise, leave it blank to auto create a new bucket
     displayType: string
-    optional: false
+    optional: yes
   - key: OpenSearchCluster
     displayName: OpenSearch Cluster Size
     value: 'Development and Testing (t3.medium=0,m5.large=1,gp2=10,az=1)'
     description: Configure Amazon OpenSearch cluster size
-    displayType: string
+    displayType: dropdown
     possibleValues:
       - Use Amazon OpenSearch Serverless
       - Development and Testing (t3.medium=0,m5.large=1,gp2=10,az=1)
@@ -36,7 +35,7 @@ options:
     displayName: AI/ML Settings
     value: 'Recommended V4 features (v4.default)'
     description: Configure AI/ML settings
-    displayType: string
+    displayType: dropdown
     possibleValues:
       - Recommended V4 features (v4.default)
       - Default (celeb,label,segment,transcribe,keyphrase,entity,textract)
@@ -61,7 +60,7 @@ options:
     displayName: CloudFront Price Class
     value: 'Use Only U.S., Canada and Europe (PriceClass_100)'
     description: Specify the price class of the edge location from which CloudFront serves your requests. For more information, see https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PriceClass.html
-    displayType: string
+    displayType: dropdown
     possibleValues:
       - Use Only U.S., Canada and Europe (PriceClass_100)
       - Use U.S., Canada, Europe, Asia and Africa (PriceClass_200)
@@ -71,7 +70,7 @@ options:
     displayName: Start On Object Creation
     value: 'YES'
     description: Start workflow when directly upload assets to ingest S3 bucket
-    displayType: string
+    displayType: dropdown
     possibleValues:
       - "NO"
       - "YES"
@@ -80,7 +79,7 @@ options:
     displayName: Enable Knowledge Graph
     value: 'NO'
     description: Enable knowledge graph to visualize how the relationships of your assets in your library. The knowledge graph feature create additional resources such as Amazon Neptune Serverless, Amazon VPC, AWS PrivateLink, additional AWS API Gateway endpoint and AWS Step Functions and will incur additional cost to the workflow.
-    displayType: string
+    displayType: dropdown
     possibleValues:
       - "NO"
       - "YES"
@@ -95,7 +94,7 @@ options:
     displayName: Bedrock Secondary Region
     value: 'Oregon [US West] (us-west-2)'
     description: If Amazon Bedrock service is not available in your current AWS region, you can select a nearby region to try out the Generative AI feature. You would also need to grant model access for Anthropic Claude 3 models through Amazon Bedrock console, Model access page.
-    displayType: string
+    displayType: dropdown
     possibleValues:
       - North Virginia [US East] (us-east-1)
       - Oregon [US West] (us-west-2)
@@ -110,16 +109,15 @@ options:
     displayName: Bedrock Model
     value: 'Anthropic Claude 3 Haiku'
     description: Select a foundation model of Amazon Bedrock to use. Make sure you have granted model access to use these models through Amazon Bedrock console, Model access page.
-    displayType: string
+    displayType: dropdown
     possibleValues:
       - Anthropic Claude 3 Haiku
       - Anthropic Claude 3 Sonnet
     optional: no
   - key: VersionCompatibilityStatement
     displayName: Version Compatibility Statement
-    value: 'Yes, I understand and proceed'
     description: The new Version 4 of Media2Cloud is not compatible with previous versions due to several optimization changes. These changes include the Amazon OpenSearch cluster indexes and consolidation of the generated metadata. While a migration tool is being developed to help customers migrate from previous versions to Version 4, this CloudFormation template SHOULD NOT be used to update your existing Media2Cloud V3 deployment to the latest version. Confirm that you have read and understand the version compatibility statement. If you are creating a new stack, select "Yes, I understand and proceed".
-    displayType: string
+    displayType: dropdown
     possibleValues:
       - Yes, I understand and proceed
       - No, do not proceed
