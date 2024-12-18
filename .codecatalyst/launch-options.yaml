@@ -19,7 +19,7 @@ options:
     displayName: S3 Ingest Bucket
     description: If you have an existing bucket that you would like to store uploaded contents, specify the bucket name. Otherwise, leave it blank to auto create a new bucket
     displayType: string
-    optional: false
+    optional: true
   - key: OpenSearchCluster
     displayName: OpenSearch Cluster Size
     value: 'Development and Testing (t3.medium=0,m5.large=1,gp2=10,az=1)'
