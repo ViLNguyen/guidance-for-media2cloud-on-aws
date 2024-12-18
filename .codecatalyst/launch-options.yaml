@@ -30,7 +30,6 @@ options:
       - Suitable for Production Workload (t3.medium=3,m5.large=2,gp2=20,az=2)
       - Recommended for Production Workload (t3.medium=3,m5.large=4,gp2=20,az=2)
       - Recommended for Large Production Workload (t3.medium=3,m5.large=6,gp2=40,az=3) 
-    optional: false
   - key: DefaultAIOptions
     displayName: AI/ML Settings
     value: 'Recommended V4 features (v4.default)'
@@ -48,7 +47,6 @@ options:
       - Video segment detection only (segment)
       - Speech to text only (transcribe)
       - Others - Celebrity and face matching (celeb,facematch)
-    optional: false
   - key: Email
     #validationRegex: '([^\s@:]+@[^\s@:]+\.[^\s@:]+)|([^\s@:]+:[^\s@:]+)'
     #validationMessage: 'Email address or Username:Password'
@@ -65,7 +63,6 @@ options:
       - Use Only U.S., Canada and Europe (PriceClass_100)
       - Use U.S., Canada, Europe, Asia and Africa (PriceClass_200)
       - Use All Edge Locations [Best Performance] (PriceClass_All)
-    optional: false
   - key: StartOnObjectCreation
     displayName: Start On Object Creation
     value: 'YES'
@@ -74,7 +71,6 @@ options:
     possibleValues:
       - "NO"
       - "YES"
-    optional: false
   - key: EnableKnowledgeGraph
     displayName: Enable Knowledge Graph
     value: 'NO'
@@ -83,13 +79,11 @@ options:
     possibleValues:
       - "NO"
       - "YES"
-    optional: yes
   - key: CidrBlock
     displayName: VPC CIDR Block
     value: '172.31.0.0/16'
     description: Specify CIDR block of an Amazon VPC where the Amazon Neptune Serverless db cluster of the knowledge graph will run on.
     displayType: string
-    optional: yes
   - key: BedrockSecondaryRegionAccess
     displayName: Bedrock Secondary Region
     value: 'Oregon [US West] (us-west-2)'
@@ -104,24 +98,21 @@ options:
       # - Frankfurt [Europe] (eu-central-1)
       # - Tokyo [Asia Pacific] (ap-northeast-1)
       # - Singapore [Asia Pacific] (ap-southeast-1)
-    optional: no
   - key: BedrockModel
     displayName: Bedrock Model
     value: 'Anthropic Claude 3 Haiku'
     description: Select a foundation model of Amazon Bedrock to use. Make sure you have granted model access to use these models through Amazon Bedrock console, Model access page.
-    displayType: radio
+    displayType: dropdown
     possibleValues:
       - Anthropic Claude 3 Haiku
       - Anthropic Claude 3 Sonnet
-    optional: no
   - key: VersionCompatibilityStatement
     displayName: Version Compatibility Statement
     description: The new Version 4 of Media2Cloud is not compatible with previous versions due to several optimization changes. These changes include the Amazon OpenSearch cluster indexes and consolidation of the generated metadata. While a migration tool is being developed to help customers migrate from previous versions to Version 4, this CloudFormation template SHOULD NOT be used to update your existing Media2Cloud V3 deployment to the latest version. Confirm that you have read and understand the version compatibility statement. If you are creating a new stack, select "Yes, I understand and proceed".
-    displayType: radio
+    displayType: dropdown
     possibleValues:
       - Yes, I understand and proceed
       - No, do not proceed
-    optional: no
   - key: Deployment
     value:
       name: prod_environment
