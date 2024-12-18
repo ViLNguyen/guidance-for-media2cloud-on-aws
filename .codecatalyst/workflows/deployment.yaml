@@ -78,7 +78,7 @@ Actions:
       Sources:
         - WorkflowSource
     Configuration:
-      parameter-overrides: file:///sources/WorkflowSource/{{parameter}}
+      parameter-overrides: 'file:///sources/WorkflowSource/$parameter'
       capabilities: CAPABILITY_IAM,CAPABILITY_NAMED_IAM,CAPABILITY_AUTO_EXPAND
       template: https://{{bucketPrefix}}-{{region}}.s3.{{region}}.amazonaws.com/guidance-for-media2cloud-on-aws/{{guidanceVersion}}/media2cloud.template
       region: {{ region }}
