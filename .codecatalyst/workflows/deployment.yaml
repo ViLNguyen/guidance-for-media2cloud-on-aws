@@ -53,20 +53,6 @@ Actions:
       AutoDiscoverReports:
         Enabled: false
         ReportNamePrefix: rpt
-      Variables:
-        - Name: region
-        - Name: bucketPrefix
-        - Name: guidanceVersion
-        - Name: BedrockModel
-        - Name: BedrockSecondaryRegionAccess
-        - Name: CidrBlock
-        - Name: DefaultAIOptions
-        - Name: Email
-        - Name: EnableKnowledgeGraph
-        - Name: OpenSearchCluster
-        - Name: PriceClass
-        - Name: StartOnObjectCreation
-        - Name: VersionCompatibilityStatement
     Configuration:
       Steps:
         - Run: export REGION=$region
@@ -90,7 +76,7 @@ Actions:
       Sources:
         - WorkflowSource
     Configuration:
-      parameter-overrides: BedrockModel=${build.BedrockModel},BedrockSecondaryRegionAccess=${build.BedrockSecondaryRegionAccess},CidrBlock=${build.CidrBlock},DefaultAIOptions=${build.DefaultAIOptions},Email=${build.Email},EnableKnowledgeGraph=${build.EnableKnowledgeGraph},OpenSearchCluster=${build.OpenSearchCluster},PriceClass=${build.PriceClass},StartOnObjectCreation=${build.StartOnObjectCreation},VersionCompatibilityStatement=${build.VersionCompatibilityStatement}
+      parameter-overrides: file:///sources/WorkflowSource/parameter.json
       capabilities: CAPABILITY_IAM,CAPABILITY_NAMED_IAM,CAPABILITY_AUTO_EXPAND
       template: https://{{bucketPrefix}}-{{region}}.s3.{{region}}.amazonaws.com/guidance-for-media2cloud-on-aws/{{guidanceVersion}}/media2cloud.template
       region: {{ region }}
