@@ -39,6 +39,17 @@ Actions:
         - Name: region
         - Name: bucketPrefix
         - Name: guidanceVersion
+        - Name: BedrockModel
+        - Name: BedrockSecondaryRegionAccess
+        - Name: CidrBlock
+        - Name: DefaultAIOptions
+        - Name: Email
+        - Name: EnableKnowledgeGraph
+        - Name: OpenSearchCluster
+        - Name: PriceClass
+        - Name: StartOnObjectCreation
+        - Name: UserDefinedIngestBucket
+        - Name: VersionCompatibilityStatement
     Outputs:
       AutoDiscoverReports:
         Enabled: false
@@ -66,7 +77,7 @@ Actions:
       Sources:
         - WorkflowSource
     Configuration:
-      parameter-overrides: file:///sources/WorkflowSource/parameter.json
+      parameter-overrides: BedrockModel=$BedrockModel,BedrockSecondaryRegionAccess=$BedrockSecondaryRegionAccess,CidrBlock=$CidrBlock,DefaultAIOptions=$DefaultAIOptions,Email=$Email,EnableKnowledgeGraph=$EnableKnowledgeGraph,OpenSearchCluster=$OpenSearchCluster,PriceClass=$PriceClass,StartOnObjectCreation=$StartOnObjectCreation,UserDefinedIngestBucket=$UserDefinedIngestBucket,VersionCompatibilityStatement=$VersionCompatibilityStatement
       capabilities: CAPABILITY_IAM,CAPABILITY_NAMED_IAM,CAPABILITY_AUTO_EXPAND
       template: https://{{bucketPrefix}}-{{region}}.s3.{{region}}.amazonaws.com/guidance-for-media2cloud-on-aws/{{guidanceVersion}}/media2cloud.template
       region: {{ region }}
