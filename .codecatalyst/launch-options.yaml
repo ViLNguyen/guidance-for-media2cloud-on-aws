@@ -18,7 +18,7 @@ options:
     displayName: S3 Ingest Bucket
     description: If you have an existing bucket that you would like to store uploaded contents, specify the bucket name. Otherwise, leave it blank to auto create a new bucket
     displayType: string
-    optional: yes
+    optional: false
   - key: OpenSearchCluster
     displayName: OpenSearch Cluster Size
     value: 'Development and Testing (t3.medium=0,m5.large=1,gp2=10,az=1)'
@@ -51,7 +51,7 @@ options:
     optional: false
   - key: Email
     #validationRegex: '([^\s@:]+@[^\s@:]+\.[^\s@:]+)|([^\s@:]+:[^\s@:]+)'
-    validationMessage: 'Email address or Username:Password'
+    #validationMessage: 'Email address or Username:Password'
     displayName: User Email
     description: Email address of the user that will be created in the Amazon Cognito Identity Pool and subscribed to the Amazon SNS topic. Subscribed users will receive ingest, publishing, and error notifications. After launch, two emails will be sent to this address; one with instructions for logging in to the web interface and one confirming the SNS subscription.
     displayType: string
@@ -109,7 +109,7 @@ options:
     displayName: Bedrock Model
     value: 'Anthropic Claude 3 Haiku'
     description: Select a foundation model of Amazon Bedrock to use. Make sure you have granted model access to use these models through Amazon Bedrock console, Model access page.
-    displayType: dropdown
+    displayType: radio
     possibleValues:
       - Anthropic Claude 3 Haiku
       - Anthropic Claude 3 Sonnet
@@ -117,7 +117,7 @@ options:
   - key: VersionCompatibilityStatement
     displayName: Version Compatibility Statement
     description: The new Version 4 of Media2Cloud is not compatible with previous versions due to several optimization changes. These changes include the Amazon OpenSearch cluster indexes and consolidation of the generated metadata. While a migration tool is being developed to help customers migrate from previous versions to Version 4, this CloudFormation template SHOULD NOT be used to update your existing Media2Cloud V3 deployment to the latest version. Confirm that you have read and understand the version compatibility statement. If you are creating a new stack, select "Yes, I understand and proceed".
-    displayType: dropdown
+    displayType: radio
     possibleValues:
       - Yes, I understand and proceed
       - No, do not proceed
@@ -139,4 +139,4 @@ options:
   - key: guidanceVersion
     displayName: Guidance Version
     description: Version of the Guidance
-    value: 'v2.0.0'
+    value: 'v1.0.0'
