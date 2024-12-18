@@ -15,6 +15,7 @@ options:
     displayType: string
     optional: false
   - key: UserDefinedIngestBucket
+    value: ''
     displayName: S3 Ingest Bucket
     description: If you have an existing bucket that you would like to store uploaded contents, specify the bucket name. Otherwise, leave it blank to auto create a new bucket
     displayType: string
@@ -74,7 +75,7 @@ options:
   - key: EnableKnowledgeGraph
     displayName: Enable Knowledge Graph
     value: 'NO'
-    description: Enable knowledge graph to visualize how the relationships of your assets in your library. The knowledge graph feature create additional resources such as Amazon Neptune Serverless, Amazon VPC, AWS PrivateLink, additional AWS API Gateway endpoint and AWS Step Functions and will incur additional cost to the workflow.
+    description: [Optional] Enable knowledge graph to visualize how the relationships of your assets in your library. The knowledge graph feature create additional resources such as Amazon Neptune Serverless, Amazon VPC, AWS PrivateLink, additional AWS API Gateway endpoint and AWS Step Functions and will incur additional cost to the workflow.
     displayType: dropdown
     possibleValues:
       - "NO"
@@ -82,7 +83,7 @@ options:
   - key: CidrBlock
     displayName: VPC CIDR Block
     value: '172.31.0.0/16'
-    description: Specify CIDR block of an Amazon VPC where the Amazon Neptune Serverless db cluster of the knowledge graph will run on.
+    description: [Optional] Specify CIDR block of an Amazon VPC where the Amazon Neptune Serverless db cluster of the knowledge graph will run on.
     displayType: string
   - key: BedrockSecondaryRegionAccess
     displayName: Bedrock Secondary Region
