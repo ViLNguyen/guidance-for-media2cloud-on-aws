@@ -1,6 +1,6 @@
 # Guidance for Media2Cloud on AWS
 
-[![Launch](https://img.shields.io/badge/Launch%20with%20CodeCatalyst-%F0%9F%9A%80-8A2BE2)](https://codecatalyst.aws/launch?options=%7B%22sourceRepository%22%3A%22https%3A%2F%2Fgithub.com%2FViLNguyen%2Fguidance-for-media2cloud-on-aws%22%2C%22destinationRepositoryName%22%3A%22guidance-for-media2cloud-on-aws%22%2C%22options%22%3A%5B%5B%22region%22%2C%22us-west-2%22%5D%5D%7D)
+[![Launch](https://img.shields.io/badge/Launch%20with%20CodeCatalyst-%F0%9F%9A%80-8A2BE2)](https://codecatalyst.aws/launch?options=%7B%22sourceRepository%22%3A%22https%3A%2F%2Fgithub.com%2FViLNguyen%2Fguidance-for-media2cloud-on-aws%22%2C%22destinationRepositoryName%22%3A%22guidance-for-media2cloud-on-aws-with-cc%22%2C%22options%22%3A%5B%5B%22region%22%2C%22us-west-2%22%5D%5D%7D)
 
 ## Table of Contents
 

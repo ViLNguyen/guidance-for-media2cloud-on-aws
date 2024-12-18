@@ -16,32 +16,32 @@ options:
     optional: false
   - key: OpenSearchCluster
     displayName: OpenSearch Cluster Size
-    value: 'Development and Testing (t3.medium=0,m5.large=1,gp2=10,az=1)'
+    value: "Development and Testing (t3.medium=0,m5.large=1,gp2=10,az=1)"
     description: Configure Amazon OpenSearch cluster size
     displayType: dropdown
     possibleValues:
-      - Use Amazon OpenSearch Serverless
-      - Development and Testing (t3.medium=0,m5.large=1,gp2=10,az=1)
-      - Suitable for Production Workload (t3.medium=3,m5.large=2,gp2=20,az=2)
-      - Recommended for Production Workload (t3.medium=3,m5.large=4,gp2=20,az=2)
-      - Recommended for Large Production Workload (t3.medium=3,m5.large=6,gp2=40,az=3) 
+      - "Use Amazon OpenSearch Serverless"
+      - "Development and Testing (t3.medium=0,m5.large=1,gp2=10,az=1)"
+      - "Suitable for Production Workload (t3.medium=3,m5.large=2,gp2=20,az=2)"
+      - "Recommended for Production Workload (t3.medium=3,m5.large=4,gp2=20,az=2)"
+      - "Recommended for Large Production Workload (t3.medium=3,m5.large=6,gp2=40,az=3)"
   - key: DefaultAIOptions
     displayName: AI/ML Settings
-    value: 'Recommended V4 features (v4.default)'
+    value: "Recommended V4 features (v4.default)"
     description: Configure AI/ML settings
     displayType: dropdown
     possibleValues:
-      - Recommended V4 features (v4.default)
-      - Default (celeb,label,segment,transcribe,keyphrase,entity,textract)
-      - All (celeb,face,facematch,label,moderation,text,segment,transcribe,keyphrase,entity,sentiment,textract)
-      - Video analysis (celeb,face,facematch,label,moderation,text,segment)
-      - Audio analysis (transcribe,keyphrase,entity)
-      - Image analysis (celeb,face,facematch,label,moderation,text)
-      - Document analysis (textract)
-      - Celebrity recognition only (celeb)
-      - Video segment detection only (segment)
-      - Speech to text only (transcribe)
-      - Others - Celebrity and face matching (celeb,facematch)
+      - "Recommended V4 features (v4.default)"
+      - "Default (celeb,label,segment,transcribe,keyphrase,entity,textract)"
+      - "All (celeb,face,facematch,label,moderation,text,segment,transcribe,keyphrase,entity,sentiment,textract)"
+      - "Video analysis (celeb,face,facematch,label,moderation,text,segment)"
+      - "Audio analysis (transcribe,keyphrase,entity)"
+      - "Image analysis (celeb,face,facematch,label,moderation,text)"
+      - "Document analysis (textract)"
+      - "Celebrity recognition only (celeb)"
+      - "Video segment detection only (segment)"
+      - "Speech to text only (transcribe)"
+      - "Others - Celebrity and face matching (celeb,facematch)"
   - key: Email
     #validationRegex: '([^\s@:]+@[^\s@:]+\.[^\s@:]+)|([^\s@:]+:[^\s@:]+)'
     #validationMessage: 'Email address or Username:Password'
@@ -51,16 +51,16 @@ options:
     optional: false
   - key: PriceClass
     displayName: CloudFront Price Class
-    value: 'Use Only U.S., Canada and Europe (PriceClass_100)'
+    value: "Use Only U.S., Canada and Europe (PriceClass_100)"
     description: Specify the price class of the edge location from which CloudFront serves your requests. For more information, see https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PriceClass.html
     displayType: dropdown
     possibleValues:
-      - Use Only U.S., Canada and Europe (PriceClass_100)
-      - Use U.S., Canada, Europe, Asia and Africa (PriceClass_200)
-      - Use All Edge Locations [Best Performance] (PriceClass_All)
+      - "Use Only U.S., Canada and Europe (PriceClass_100)"
+      - "Use U.S., Canada, Europe, Asia and Africa (PriceClass_200)"
+      - "Use All Edge Locations [Best Performance] (PriceClass_All)"
   - key: StartOnObjectCreation
     displayName: Start On Object Creation
-    value: 'YES'
+    value: "YES"
     description: Start workflow when directly upload assets to ingest S3 bucket
     displayType: dropdown
     possibleValues:
@@ -76,38 +76,39 @@ options:
       - "YES"
   - key: CidrBlock
     displayName: VPC CIDR Block
-    value: '172.31.0.0/16'
+    value: 172.31.0.0/16
     description: '(Optional) Specify CIDR block of an Amazon VPC where the Amazon Neptune Serverless db cluster of the knowledge graph will run on.'
     displayType: string
   - key: BedrockSecondaryRegionAccess
     displayName: Bedrock Secondary Region
-    value: 'Oregon [US West] (us-west-2)'
+    value: "Oregon [US West] (us-west-2)"
     description: If Amazon Bedrock service is not available in your current AWS region, you can select a nearby region to try out the Generative AI feature. You would also need to grant model access for Anthropic Claude 3 models through Amazon Bedrock console, Model access page.
     displayType: dropdown
     possibleValues:
-      - North Virginia [US East] (us-east-1)
-      - Oregon [US West] (us-west-2)
-      - Paris [Europe] (eu-west-3)
-      - Sydney [Asia Pacific] (ap-southeast-2)
-      - No, do not enable Amazon Bedrock
-      # - Frankfurt [Europe] (eu-central-1)
-      # - Tokyo [Asia Pacific] (ap-northeast-1)
-      # - Singapore [Asia Pacific] (ap-southeast-1)
+      - "North Virginia [US East] (us-east-1)"
+      - "Oregon [US West] (us-west-2)"
+      - "Paris [Europe] (eu-west-3)"
+      - "Sydney [Asia Pacific] (ap-southeast-2)"
+      - "No, do not enable Amazon Bedrock"
+      # - "Frankfurt [Europe] (eu-central-1)"
+      # - "Tokyo [Asia Pacific] (ap-northeast-1)"
+      # - "Singapore [Asia Pacific] (ap-southeast-1)"
   - key: BedrockModel
     displayName: Bedrock Model
-    value: 'Anthropic Claude 3 Haiku'
+    value: "Anthropic Claude 3 Haiku"
     description: Select a foundation model of Amazon Bedrock to use. Make sure you have granted model access to use these models through Amazon Bedrock console, Model access page.
     displayType: dropdown
     possibleValues:
-      - Anthropic Claude 3 Haiku
-      - Anthropic Claude 3 Sonnet
+      - "Anthropic Claude 3 Haiku"
+      - "Anthropic Claude 3 Sonnet"
   - key: VersionCompatibilityStatement
+    value: "Yes, I understand and proceed"
     displayName: Version Compatibility Statement
     description: The new Version 4 of Media2Cloud is not compatible with previous versions due to several optimization changes. These changes include the Amazon OpenSearch cluster indexes and consolidation of the generated metadata. While a migration tool is being developed to help customers migrate from previous versions to Version 4, this CloudFormation template SHOULD NOT be used to update your existing Media2Cloud V3 deployment to the latest version. Confirm that you have read and understand the version compatibility statement. If you are creating a new stack, select "Yes, I understand and proceed".
     displayType: dropdown
     possibleValues:
-      - Yes, I understand and proceed
-      - No, do not proceed
+      - "Yes, I understand and proceed"
+      - "No, do not proceed"
     optional: false
   - key: Deployment
     value:
