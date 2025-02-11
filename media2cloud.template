@@ -1,20 +1,20 @@
 AWSTemplateFormatVersion: "2010-09-09"
 
-Description: (SO0050) Guidance for Media2Cloud on AWS - this guidance is designed to demonstrate a serverless ingest and analysis framework that can quickly setup a baseline ingest workflow for placing video assets and associated metadata under management control of an AWS customer. Version v4.0.4
+Description: (SO0050) Guidance for Media2Cloud on AWS - this guidance is designed to demonstrate a serverless ingest and analysis framework that can quickly setup a baseline ingest workflow for placing video assets and associated metadata under management control of an AWS customer. Version 4.0.5
 
 Mappings:
     Solution:
         Project:
             Id: "SO0050"
             LowerCaseId: "so0050"
-            Version: "v4.0.4"
-            CustomUserAgent: AWSSOLUTION/SO0050/v4.0.4
+            Version: "4.0.5"
+            CustomUserAgent: AWSSOLUTION/SO0050/4.0.5
             SolutionName: Media2Cloud on AWS
             AppRegistryApplicationName: Media2CloudOnAws
             ApplicationType: AWS-Solutions
         Template:
             S3Bucket: "awsi-megs-guidances-us-west-2"
-            KeyPrefix: "media2cloud/v4.0.4"
+            KeyPrefix: "media2cloud/4.0.5"
             SingleRegion: "true"
         Stack:
             Core: media2cloud-core-stack.template
@@ -25,7 +25,7 @@ Mappings:
             CodeBuild: media2cloud-codebuild-stack.template
     Workflow:
         CustomResources:
-            Package: "custom-resources-v4.0.4.zip"
+            Package: "custom-resources-4.0.5.zip"
             Name: custom-resources
         ShoppableStack:
             Enable: "NO"
@@ -48,7 +48,7 @@ Mappings:
     DockerImage:
         Faiss:
             Repo: "faiss-on-aws"
-            Version: "0.1.7"
+            Version: "0.1.8"
         Shoppable:
             Repo: "shoppable-on-aws"
             Version: "0.1.3"
@@ -78,7 +78,7 @@ Parameters:
     OpenSearchCluster:
         Type: String
         Description: Configure Amazon OpenSearch cluster size
-        Default: Development and Testing (t3.medium=0,m5.large=1,gp2=10,az=1)
+        Default: Development and Testing (t3.medium=0\u002Cm5.large=1\u002Cgp2=10\u002Caz=1)
         # AllowedValues:
         #    - Use Amazon OpenSearch Serverless
         #    - Development and Testing (t3.medium=0,m5.large=1,gp2=10,az=1)
@@ -116,7 +116,7 @@ Parameters:
         #    - Use Only U.S., Canada and Europe (PriceClass_100)
         #    - Use U.S., Canada, Europe, Asia and Africa (PriceClass_200)
         #    - Use All Edge Locations [Best Performance] (PriceClass_All)
-        Default: Use Only U.S., Canada and Europe (PriceClass_100)
+        Default: Use Only U.S.\u002C Canada and Europe (PriceClass_100)  
     # S3 Ingest Bucket
     StartOnObjectCreation:
         Type: String
@@ -142,12 +142,12 @@ Parameters:
         Type: String
         Description: If Amazon Bedrock service is not available in your current AWS region, you can select a nearby region to try out the Generative AI feature. You would also need to grant model access for Anthropic Claude 3 models through Amazon Bedrock console, Model access page.
         Default: North Virginia [US East] (us-east-1)
-        # AllowedValues:
-        #    - North Virginia [US East] (us-east-1)
-        #    - Oregon [US West] (us-west-2)
-        #    - Paris [Europe] (eu-west-3)
-        #    - Sydney [Asia Pacific] (ap-southeast-2)
-        #    - No, do not enable Amazon Bedrock
+        AllowedValues:
+            - North Virginia [US East] (us-east-1)
+            - Oregon [US West] (us-west-2)
+            - Paris [Europe] (eu-west-3)
+            - Sydney [Asia Pacific] (ap-southeast-2)
+            - No, do not enable Amazon Bedrock
             # - Frankfurt [Europe] (eu-central-1)
             # - Tokyo [Asia Pacific] (ap-northeast-1)
             # - Singapore [Asia Pacific] (ap-southeast-1)
@@ -547,7 +547,7 @@ Resources:
                     - !Select
                         - 0
                         - !Split
-                            - ","
+                            - "\\u002C"
                             - !Select
                                 - 0
                                 - !Split
@@ -563,7 +563,7 @@ Resources:
                     - !Select
                         - 1
                         - !Split
-                            - ","
+                            - "\\u002C"
                             - !Select
                                 - 0
                                 - !Split
@@ -579,7 +579,7 @@ Resources:
                     - !Select
                         - 2
                         - !Split
-                            - ","
+                            - "\\u002C"
                             - !Select
                                 - 0
                                 - !Split
@@ -595,7 +595,7 @@ Resources:
                     - !Select
                         - 3
                         - !Split
-                            - ","
+                            - "\\u002C"
                             - !Select
                                 - 0
                                 - !Split
