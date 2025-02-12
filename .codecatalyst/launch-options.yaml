@@ -68,7 +68,7 @@ options:
       - YES
   - key: EnableKnowledgeGraph
     displayName: Enable Knowledge Graph
-    value: 'NO'
+    value: NO
     description: '(Optional) Enable knowledge graph to visualize how the relationships of your assets in your library. The knowledge graph feature create additional resources such as Amazon Neptune Serverless, Amazon VPC, AWS PrivateLink, additional AWS API Gateway endpoint and AWS Step Functions and will incur additional cost to the workflow.'
     displayType: dropdown
     possibleValues:
