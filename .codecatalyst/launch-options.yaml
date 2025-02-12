@@ -16,15 +16,15 @@ options:
     optional: false
   - key: OpenSearchCluster
     displayName: OpenSearch Cluster Size
-    value: "Development and Testing (t3.medium=0\\u002Cm5.large=1\\u002Cgp2=10\\u002Caz=1)"
+    value: "Development and Testing (t3.medium=0;m5.large=1;gp2=10;az=1)"
     description: Configure Amazon OpenSearch cluster size
     displayType: dropdown
     possibleValues:
       - "Use Amazon OpenSearch Serverless"
-      - "Development and Testing (t3.medium=0\\u002Cm5.large=1\\u002Cgp2=10\\u002Caz=1)"
-      - "Suitable for Production Workload (t3.medium=3\\u002Cm5.large=2\\u002Cgp2=20\\u002Caz=2)"
-      - "Recommended for Production Workload (t3.medium=3\\u002Cm5.large=4\\u002Cgp2=20\\u002Caz=2)"
-      - "Recommended for Large Production Workload (t3.medium=3\\u002Cm5.large=6\\u002Cgp2=40\\u002Caz=3)"
+      - "Development and Testing (t3.medium=0;m5.large=1;gp2=10;az=1)"
+      - "Suitable for Production Workload (t3.medium=3;m5.large=2;gp2=20;az=2)"
+      - "Recommended for Production Workload (t3.medium=3;m5.large=4;gp2=20;az=2)"
+      - "Recommended for Large Production Workload (t3.medium=3;m5.large=6;gp2=40;az=3)"
   - key: DefaultAIOptions
     displayName: AI/ML Settings
     value: "Recommended V4 features (v4.default)"
