@@ -76,7 +76,7 @@ Actions:
       Sources:
         - WorkflowSource
     Configuration:
-      parameter-overrides: BedrockModel=${build.BedrockModel},BedrockSecondaryRegionAccess=${build.BedrockSecondaryRegionAccess},CidrBlock=${build.CidrBlock},DefaultAIOptions=${build.DefaultAIOptions},Email=${build.Email},EnableKnowledgeGraph=${build.EnableKnowledgeGraph},PriceClass=${build.PriceClass},StartOnObjectCreation=${build.StartOnObjectCreation},VersionCompatibilityStatement=${build.VersionCompatibilityStatement}
+      parameter-overrides: BedrockModel=${build.BedrockModel},BedrockSecondaryRegionAccess=${build.BedrockSecondaryRegionAccess},CidrBlock=${build.CidrBlock},DefaultAIOptions=${build.DefaultAIOptions},Email=${build.Email},EnableKnowledgeGraph=${build.EnableKnowledgeGraph},PriceClass=${build.PriceClass},StartOnObjectCreation=${build.StartOnObjectCreation},VersionCompatibilityStatement=${build.VersionCompatibilityStatement},OpenSearchCluster=${build.OpenSearchCluster}
       capabilities: CAPABILITY_IAM,CAPABILITY_NAMED_IAM,CAPABILITY_AUTO_EXPAND
       template: https://{{bucketPrefix}}-{{region}}.s3.{{region}}.amazonaws.com/guidance-for-media2cloud-on-aws/{{guidanceVersion}}/media2cloud.template
       region: {{ region }}
