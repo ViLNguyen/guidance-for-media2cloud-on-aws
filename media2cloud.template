@@ -90,7 +90,7 @@ Parameters:
         Type: String
         Description: Configure AI/ML settings
         Default: Recommended V4 features (v4.default)
-         AllowedValues:
+        AllowedValues:
             - Recommended V4 features (v4.default)
             - Default (celeb\u002Clabel\u002Csegment\u002Ctranscribe\u002Ckeyphrase\u002Centity\u002Ctextract)
             - All (celeb\u002Cface\u002Cfacematch\u002Clabel\u002Cmoderation\u002Ctext\u002Csegment,\u002Ctranscribe\u002Ckeyphrase\u002Centity\u002Csentiment\u002Ctextract)
