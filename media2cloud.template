@@ -121,18 +121,18 @@ Parameters:
     StartOnObjectCreation:
         Type: String
         Description: Start workflow when directly upload assets to ingest S3 bucket
-        Default: YES
+        Default: "YES"
         AllowedValues:
-            - NO
-            - YES
+            - "NO"
+            - "YES"
     # Amazon Neptune Knowledge Graph (Optional)
     EnableKnowledgeGraph:
         Type: String
         Description: Enable knowledge graph to visualize how the relationships of your assets in your library. The knowledge graph feature create additional resources such as Amazon Neptune Serverless, Amazon VPC, AWS PrivateLink, additional AWS API Gateway endpoint and AWS Step Functions and will incur additional cost to the workflow.
-        Default: NO
+        Default: "NO"
         AllowedValues:
-            - NO
-            - YES
+            - "NO"
+            - "YES"
     CidrBlock:
         Type: String
         Description: Specify CIDR block of an Amazon VPC where the Amazon Neptune Serverless db cluster of the knowledge graph will run on.
